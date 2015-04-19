@@ -9,18 +9,18 @@
 'use strict';
 
 /**
- * GoogleAnalytics class
+ * UserProfiles class
  * @module core
  */
 angular.module('farmbuild.farmdata')
-  .factory('GoogleAnalytics', function ($window) {
-    var GoogleAnalytics = {};
+  .factory('UserProfiles', function ($window) {
+    var UserProfiles = {};
 
-    GoogleAnalytics.isAvailable = function() {
+    UserProfiles.isAvailable = function() {
       return (typeof ga !== 'undefined');
     }
 
-    $window.farmbuild.core.GoogleAnalytics = GoogleAnalytics;
-    return GoogleAnalytics;
+    $window.farmbuild.core.UserProfiles = UserProfiles;
+    return UserProfiles;
 
   });

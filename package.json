@@ -26,12 +26,12 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor protractor.conf.js",
-    "clean": "rm -rf dist/* & rm -rf docs/*",
+    "clean": "rm -rf dist/* && rm -rf docs/*",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json",
     "jshint": " node_modules/.bin/jshint -c .jshintrc --filename src/**/*.js --verbose --show-non-errors",
     "concat": "uglifyjs bower_components/angular/angular.min.js src/core.js src/**/*.js src/index.js -o dist/farmbuild-core.js -v -b",
     "uglify": "uglifyjs dist/farmbuild-core.js --source-map-url farmbuild-core.min.js.map -o dist/farmbuild-core.min.js -v -c",
-    "dist": "npm run clean & npm run generate-docs & npm run concat & npm run uglify"
+    "dist": "npm run clean && npm run generate-docs && npm run concat && npm run uglify"
   },
   "repository": {
     "type": "git",
