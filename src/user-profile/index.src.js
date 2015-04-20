@@ -12,7 +12,7 @@
  * UserProfiles class
  * @module core
  */
-angular.module('farmbuild.farmdata')
+angular.module('farmbuild.core')
   .factory('UserProfiles', function ($window) {
     var UserProfiles = {};
 

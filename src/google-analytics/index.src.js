@@ -12,7 +12,7 @@
  * GoogleAnalytics class
  * @module core
  */
-angular.module('farmbuild.farmdata')
+angular.module('farmbuild.core')
   .factory('GoogleAnalytics', function ($window) {
     var GoogleAnalytics = {};
 

@@ -6315,7 +6315,7 @@
 
 "use strict";
 
-angular.module("farmbuild.farmdata").factory("GoogleAnalytics", function($window) {
+angular.module("farmbuild.core").factory("GoogleAnalytics", function($window) {
     var GoogleAnalytics = {};
     GoogleAnalytics.isAvailable = function() {
         return typeof ga !== "undefined";
@@ -6326,7 +6326,7 @@ angular.module("farmbuild.farmdata").factory("GoogleAnalytics", function($window
 
 "use strict";
 
-angular.module("farmbuild.farmdata").factory("UserProfiles", function($window) {
+angular.module("farmbuild.core").factory("UserProfiles", function($window) {
     var UserProfiles = {};
     UserProfiles.isAvailable = function() {
         return typeof ga !== "undefined";
