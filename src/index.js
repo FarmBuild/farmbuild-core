@@ -7,7 +7,7 @@ if(!angular) {
 
 // Inject modules
 angular.module('farmbuild.core').run(function ($log) {
-  $log.info('Welcome to FarmBuild core project...');
+  $log.info('Welcome to FarmBuild core project....');
 });
 
 window.farmbuild = {
