@@ -1,8 +1,8 @@
 {
-  "name": "farmbuild-farmdata",
+  "name": "farmbuild-core",
   "description": "Provides a set of APIs common for all projects, including AngularJS and Google Analytics.",
   "version": "1.0.5",
-  "homepage": "https://github.com/FarmBuild/farmbuild-farmdata",
+  "homepage": "https://github.com/FarmBuild/farmbuild-core",
   "license": "MIT",
   "private": true,
   "dependencies": {
