@@ -6339,7 +6339,7 @@ if (!angular) {
 }
 
 angular.module("farmbuild.core").run(function($log) {
-    $log.info("Welcome to FarmBuild core...");
+    $log.info("Welcome to FarmBuild core project...");
 });
 
 window.farmbuild = {
