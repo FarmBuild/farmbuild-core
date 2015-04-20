@@ -6308,10 +6308,7 @@
 
 !window.angular.$$csp() && window.angular.element(document).find("head").prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}</style>');
 
-(function(angular) {
-    "use strict";
-    angular.module("farmbuild.core", []);
-})(angular);
+angular.module("farmbuild.core", []);
 
 "use strict";
 
@@ -6335,11 +6332,18 @@ angular.module("farmbuild.core").factory("UserProfiles", function($window) {
     return UserProfiles;
 });
 
-(function(window, angular) {
-    "use strict";
-    angular.module("farmbuild.core").run(function() {});
-    window.farmbuild = {
-        core: {}
-    };
-    angular.injector([ "ng", "farmbuild.core" ]);
-})(window, angular);
+"use strict";
+
+if (!angular) {
+    console.error("farmbuild requires angular JS 1.3.x, please include e.g. ");
+}
+
+angular.module("farmbuild.core").run(function($log) {
+    $log.info("Welcome to FarmBuild core...");
+});
+
+window.farmbuild = {
+    core: {}
+};
+
+angular.injector([ "ng", "farmbuild.core" ]);
