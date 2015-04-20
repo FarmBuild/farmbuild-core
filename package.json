@@ -1,6 +1,6 @@
 {
   "name": "farmbuild-core",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Provides a set of APIs common for all projects, including AngularJS and Google Analytics.",
   "main": "index.js",
   "devDependencies": {
