@@ -6345,5 +6345,3 @@ angular.module("farmbuild.core").run(function($log) {
 window.farmbuild = {
     core: {}
 };
-
-angular.injector([ "ng", "farmbuild.core" ]);
