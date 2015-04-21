@@ -1,7 +1,10 @@
 'use strict';
 
 if(!angular) {
-  console.error('farmbuild requires angular JS 1.3.x, please include e.g. ');
+  var version = '1.3.15';
+  console.error('farmbuild requires angular JS ' + version +
+    ', please include e.g. https://ajax.googleapis.com/ajax/libs/angularjs/'+version+'/angular.min.js ');
+  throw new Error('FarmBuild requires angular '+version+', please load it before the farmbuild.core module.');
 }
 
 angular.module('farmbuild.core', []);

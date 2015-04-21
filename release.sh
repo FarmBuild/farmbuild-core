@@ -7,10 +7,17 @@ if [ -z "$1" ]
 fi
 MSG=$1
 
+if [ -z "$2" ]
+  then
+    echo "You must specify the new version such as 1.0.12"
+    exit 1
+fi
+VERSION=$2
+
 echo "pushing to master with $MSG"
 
-git add .
-git rm -r $(git ls-files --deleted) 
+git add --all .
+#git rm -r $(git ls-files --deleted) 
 git commit -m "$MSG"
 git push origin master
 
@@ -18,8 +25,10 @@ git push origin master
 
 npm run dist
 
-git add .
-git rm -r $(git ls-files --deleted)
+git add --all .
+#git rm -r $(git ls-files --deleted)
 git commit -m "$MSG"
 git push origin master
+echo "creating tag with $VERSION"
+./tag $VERSION
 
