@@ -6318,17 +6318,65 @@ if (!angular) {
 
 angular.module("farmbuild.core", []);
 
-window.farmbuild = {
-    core: {}
-};
+angular.injector([ "ng", "farmbuild.core" ]);
 
 "use strict";
 
-angular.module("farmbuild.core").factory("GoogleAnalytics", function($window) {
-    var GoogleAnalytics = {};
-    GoogleAnalytics.isAvailable = function() {
-        return typeof ga !== "undefined";
+angular.module("farmbuild.core").factory("googleAnalytics", function($log, validations) {
+    var googleAnalytics = {}, _isDefined = validations.isDefined;
+    (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+    ga("create", "UA-53478356-1", "auto");
+    ga("send", "pageview");
+    googleAnalytics.track = function(api, clientName) {
+        $log.info("googleAnalytics.track api: %s, clientName: %s", api, clientName);
+        ga("send", "pageview", {
+            dimension4: api,
+            dimension5: clientName
+        });
     };
-    $window.farmbuild.core.GoogleAnalytics = GoogleAnalytics;
-    return GoogleAnalytics;
+    return googleAnalytics;
+});
+
+angular.module("farmbuild.core").factory("validations", function($log) {
+    var validations = {};
+    validations.isPositiveNumberOrZero = function(value) {
+        return !isNaN(parseFloat(value)) && isFinite(value) && parseFloat(value) >= 0;
+    };
+    validations.isPositiveNumber = function(value) {
+        return validations.isPositiveNumberOrZero(value) && parseFloat(value) > 0;
+    };
+    validations.isAlphabet = function(value) {
+        var regex = /^[A-Za-z]+$/gi;
+        return regex.test(value);
+    };
+    validations.isAlphanumeric = function(value) {
+        var regex = /^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9 _]*$/gi;
+        return regex.test(value);
+    };
+    var isEmpty = function(data) {
+        if (typeof data == "number" || typeof data == "boolean") {
+            return false;
+        }
+        if (typeof data == "undefined" || data === null) {
+            return true;
+        }
+        if (typeof data.length != "undefined") {
+            return data.length == 0;
+        }
+        return false;
+    };
+    validations.isEmpty = isEmpty;
+    validations.isDefined = angular.isDefined;
+    validations.isArray = angular.isArray;
+    validations.equals = angular.equals;
+    return validations;
 });
