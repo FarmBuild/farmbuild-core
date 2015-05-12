@@ -30,5 +30,5 @@ git add --all .
 git commit -m "$MSG"
 git push origin master
 echo "creating tag with $VERSION"
-./tag $VERSION
+./tag.sh $VERSION
 
