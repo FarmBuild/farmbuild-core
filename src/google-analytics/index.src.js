@@ -27,7 +27,19 @@ angular.module('farmbuild.core')
         ga('send', 'pageview');
 
         googleAnalytics.track = function(api, clientName) {
-            $log.info('googleAnalytics.track api: %s, clientName: %s', api, clientName)
+            if(!_isDefined(api)) {
+                $log.error('googleAnalytics.track api must be provided.' +
+                ' Please specify you API name.');
+                return;
+            }
+            if(!_isDefined(clientName)) {
+                $log.error('googleAnalytics.track clientName must be provided.' +
+                ' Please specify the registered client name.');
+                return;
+            }
+
+            $log.info('googleAnalytics.track api: %s, clientName: %s', api, clientName);
+
             ga('send', 'pageview', {
                 'dimension4':  api,
                 'dimension5': clientName
