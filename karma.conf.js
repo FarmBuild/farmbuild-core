@@ -11,8 +11,8 @@ module.exports = function(config){
       'src/google-analytics/index.src.js',
       //'src/**/*.js'
 //      'src/index.spec.js',
-        'src/validations/index.spec.js',
-        'src/google-analytics/index.spec.js',
+      'src/validations/index.spec.js',
+      'src/google-analytics/index.spec.js'
     ],
 
     autoWatch : true,

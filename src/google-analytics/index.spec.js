@@ -22,6 +22,7 @@ describe('farmbuild.core module', function() {
             expect(googleAnalytics).toBeDefined();
         }));
 
+
         it('googleAnalytics.track should create a track', inject(function() {
             googleAnalytics.track('farmbuild-dairy-nutrient-calculator', 'AgSmart')
         }));
