@@ -6352,6 +6352,8 @@ angular.module("farmbuild.core").factory("googleAnalytics", function($log, valid
         }
         $log.info("googleAnalytics.track apiName: %s, clientName: %s", apiName, clientName);
         sendPageView({
+            page: apiName,
+            title: apiName,
             dimension4: apiName,
             dimension5: clientName
         });
