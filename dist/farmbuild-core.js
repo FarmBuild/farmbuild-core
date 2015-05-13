@@ -6391,6 +6391,7 @@ angular.module("farmbuild.core").factory("validations", function($log) {
     validations.isDefined = angular.isDefined;
     validations.isArray = angular.isArray;
     validations.isObject = angular.isObject;
+    validations.isString = angular.isString;
     validations.equals = angular.equals;
     return validations;
 });
