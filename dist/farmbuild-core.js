@@ -6318,6 +6318,8 @@ if (!angular) {
 
 angular.module("farmbuild.core", []);
 
+window.farmbuild = {};
+
 angular.injector([ "ng", "farmbuild.core" ]);
 
 "use strict";
