@@ -6323,7 +6323,7 @@ angular.injector([ "ng", "farmbuild.core" ]);
 "use strict";
 
 angular.module("farmbuild.core").factory("googleAnalytics", function($log, validations) {
-    var googleAnalytics = {}, _isDefined = validations.isDefined;
+    var googleAnalytics = {}, _isDefined = validations.isDefined, trackerName = "farmbuildTracker";
     (function(i, s, o, g, r, a, m) {
         i["GoogleAnalyticsObject"] = r;
         i[r] = i[r] || function() {
@@ -6334,20 +6334,25 @@ angular.module("farmbuild.core").factory("googleAnalytics", function($log, valid
         a.src = g;
         m.parentNode.insertBefore(a, m);
     })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
-    ga("create", "UA-53478356-1", "auto");
-    ga("send", "pageview");
-    googleAnalytics.track = function(api, clientName) {
-        if (!_isDefined(api)) {
-            $log.error("googleAnalytics.track api must be provided." + " Please specify you API name.");
+    function sendPageView(values) {
+        ga(trackerName + ".send", "pageview", values);
+    }
+    ga("create", "UA-53478356-1", "auto", {
+        name: name
+    });
+    sendPageView();
+    googleAnalytics.track = function(apiName, clientName) {
+        if (!_isDefined(apiName)) {
+            $log.error("googleAnalytics.track apiName must be provided." + " Please specify you API name.");
             return;
         }
         if (!_isDefined(clientName)) {
             $log.error("googleAnalytics.track clientName must be provided." + " Please specify the registered client name.");
             return;
         }
-        $log.info("googleAnalytics.track api: %s, clientName: %s", api, clientName);
-        ga("send", "pageview", {
-            dimension4: api,
+        $log.info("googleAnalytics.track apiName: %s, clientName: %s", apiName, clientName);
+        sendPageView({
+            dimension4: apiName,
             dimension5: clientName
         });
     };
