@@ -53,6 +53,8 @@ angular.module('farmbuild.core')
 
       $log.info('googleAnalytics.track apiName: %s, clientName: %s', apiName, clientName);
       sendPageView({
+        'page':apiName,
+        'title':apiName,
         'dimension4': apiName,
         'dimension5': clientName
       });
