@@ -35,8 +35,9 @@ angular.module('farmbuild.core')
       ga(trackerName + '.send', 'pageview', values);
     }
 
-    ga('create', 'UA-53478356-1', 'auto', {'name': name});
-    sendPageView();
+    ga('create', 'UA-53478356-1', 'auto', {'name': trackerName});
+
+    //sendPageView();
 
 
     googleAnalytics.track = function (apiName, clientName) {
