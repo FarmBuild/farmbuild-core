@@ -1,4 +1,4 @@
-#Farm Dairy Nutrient Calculator
+#FarmBuild Core
 
 The core module of
 <a href="https://github.com/FarmBuild" target="_blank">FarmBuild</a>
