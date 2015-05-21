@@ -9,10 +9,11 @@ module.exports = function(config){
       'src/index.js',
       'src/validations/index.src.js',
       'src/google-analytics/index.src.js',
-      //'src/**/*.js'
-//      'src/index.spec.js',
-      'src/validations/index.spec.js',
-      'src/google-analytics/index.spec.js'
+      'src/collections/index.src.js',
+//      'src/validations/index.spec.js',
+//      'src/google-analytics/index.spec.js',
+//      'src/collections/index.spec.js',
+      'src/**/*.spec.js'
     ],
 
     autoWatch : true,
