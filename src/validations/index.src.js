@@ -5,7 +5,8 @@ angular.module('farmbuild.core')
     var validations = {};
 
     validations.isPositiveNumberOrZero = function(value) {
-      return !isNaN(parseFloat(value)) && isFinite(value) && parseFloat(value) >= 0;
+      return (typeof value !== 'string') &&
+        !isNaN(parseFloat(value)) && isFinite(value) && parseFloat(value) >= 0;
     };
 
     validations.isPositiveNumber = function(value) {

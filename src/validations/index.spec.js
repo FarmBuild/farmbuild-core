@@ -73,6 +73,21 @@ describe('Service: validations', function () {
       expect(validations.isPositiveNumber(2.1)).toBeTruthy();
     }));
 
+    it('isNumber should return true for "2"', inject(function () {
+      expect(validations.isPositiveNumber('2')).toBeFalsy();
+    }));
+
+    it('isNumber should return true for true', inject(function () {
+      expect(validations.isPositiveNumber(true)).toBeFalsy();
+    }));
+
+    it('isNumber should return true for false', inject(function () {
+      expect(validations.isPositiveNumber(false)).toBeFalsy();
+    }));
+
+    it('isNumber should return true for {}', inject(function () {
+      expect(validations.isPositiveNumber({})).toBeFalsy();
+    }));
   });
 
   describe('isEmpty', function() {
