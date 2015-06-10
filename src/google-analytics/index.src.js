@@ -17,7 +17,8 @@ angular.module('farmbuild.core')
   function ($log, validations) {
     var googleAnalytics = {},
       _isDefined = validations.isDefined,
-      trackerName = 'farmbuildTracker';
+      trackerName = 'farmbuildTracker',
+      src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -29,7 +30,7 @@ angular.module('farmbuild.core')
       a.async = 1;
       a.src = g;
       m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    })(window, document, 'script', src, 'ga');
 
     function sendPageView(values) {
       ga(trackerName + '.send', 'pageview', values);
