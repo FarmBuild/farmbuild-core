@@ -18,7 +18,8 @@ angular.module('farmbuild.core')
     var googleAnalytics = {},
       _isDefined = validations.isDefined,
       trackerName = 'farmbuildTracker',
-      src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      trackingCode = 'UA-62295166-1',
+      src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.google-analytics.com/analytics.js';
 
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -36,10 +37,7 @@ angular.module('farmbuild.core')
       ga(trackerName + '.send', 'pageview', values);
     }
 
-    ga('create', 'UA-53478356-1', 'auto', {'name': trackerName});
-
-    //sendPageView();
-
+    ga('create', trackingCode, 'auto', {'name': trackerName});
 
     googleAnalytics.track = function (apiName, clientName) {
       if (!_isDefined(apiName)) {
@@ -61,10 +59,6 @@ angular.module('farmbuild.core')
         'dimension5': clientName
       });
 
-//      ga('send', 'pageview', {
-//        'dimension4': apiName,
-//        'dimension5': clientName
-//      });
     }
 
     return googleAnalytics;
