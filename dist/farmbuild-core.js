@@ -7397,6 +7397,8 @@ angular.module("farmbuild.core").factory("googleAnalytics", function($log, valid
     return googleAnalytics;
 });
 
+"use strict";
+
 angular.module("farmbuild.core").factory("validations", function($log) {
     var validations = {};
     validations.isPositiveNumberOrZero = function(value) {

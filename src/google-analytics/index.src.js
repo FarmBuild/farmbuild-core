@@ -9,7 +9,7 @@
 
 /**
  * googleAnalytics class
- * @module core
+ * @module googleAnalytics
  */
 angular.module('farmbuild.core')
   .factory('googleAnalytics',
@@ -38,6 +38,12 @@ angular.module('farmbuild.core')
 
     ga('create', trackingCode, 'auto', {'name': trackerName});
 
+    /**
+     * Send usage statistic to google analytic account
+     * @method track
+     * @param {!string} apiName
+     * @param {!string} clientName
+     */
     googleAnalytics.track = function (apiName, clientName) {
       if (!_isDefined(apiName)) {
         $log.error('googleAnalytics.track apiName must be provided.' +
@@ -58,7 +64,7 @@ angular.module('farmbuild.core')
         'dimension5': clientName
       });
 
-    }
+    };
 
     return googleAnalytics;
 
