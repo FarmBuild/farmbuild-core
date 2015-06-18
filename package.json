@@ -49,8 +49,7 @@
     "farmbuild",
     "core"
   ],
-  "author": "Hiroki Gota <hiroki.gota@spatialvision.com.au>",
-  "license": "MIT",
+  "author": "State of Victoria",
   "bugs": {
     "url": "https://github.com/FarmBuild/farmbuild-core/issues"
   },

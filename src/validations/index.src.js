@@ -1,3 +1,12 @@
+/**
+ * @since 0.0.1
+ * @copyright State of Victoria
+ * @author State of Victoria
+ * @version 1.0.0
+ */
+
+'use strict';
+
 angular.module('farmbuild.core')
   .factory('validations',
   function ($log) {
